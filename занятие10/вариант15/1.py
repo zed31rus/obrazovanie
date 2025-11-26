@@ -1,3 +1,5 @@
+import os
+
 def m(matrix, c, d):
     modified_row_indices = []
     
@@ -10,12 +12,16 @@ def m(matrix, c, d):
                 
     return modified_row_indices
 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+in_path = os.path.join(script_dir, 'in.txt')
+answer_path = os.path.join(script_dir, 'answer.txt')
+
 matrix = []
-with open('./in.txt', 'r') as file:
+with open(in_path, 'r') as file:
     for line in file:
         row = list(map(float, line.strip().split()))
         matrix.append(row)
 c = int(input(": "))
 d = int(input(": "))
-with open('./answer.txt', 'a') as file:
-    file.write(m(matrix, c, d))
+with open(answer_path, 'a') as file:
+    file.write(str(m(matrix, c, d)))

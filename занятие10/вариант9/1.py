@@ -1,3 +1,5 @@
+import os
+
 def m(matrix, k):
     if k == 0:
         return 0, None
@@ -14,12 +16,16 @@ def m(matrix, k):
                     
     return count, max_multiple
 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+in_path = os.path.join(script_dir, 'in.txt')
+answer_path = os.path.join(script_dir, 'answer.txt')
+
 matrix = []
-with open('./in.txt', 'r') as file:
+with open(in_path, 'r') as file:
     for line in file:
         row = list(map(float, line.strip().split()))
         matrix.append(row)
 
-a = int(input(': '))
-with open('./answer.txt', 'a') as file:
-    file.write(m(matrix, a))
+with open(answer_path, 'a') as file:
+    file.write(str(m(matrix)))
+
