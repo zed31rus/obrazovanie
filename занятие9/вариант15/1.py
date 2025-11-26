@@ -1,4 +1,4 @@
-def solve15(matrix, c, d):
+def m(matrix, c, d):
     modified_row_indices = []
     
     for i in range(len(matrix)):
